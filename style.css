@@ -36,15 +36,16 @@ header{
     z-index:1000;
 }
 
-.logo{
+.logo a{
+    text-decoration:none;
     font-size:30px;
     font-weight:800;
     color:#00c6ff;
     letter-spacing:.5px;
-    user-select:none;
+    transition:.3s;
 }
 
-.logo:hover{
+.logo a:hover{
     color:#38bdf8;
 }
 
