@@ -42,7 +42,7 @@ function searchTool() {
         input.includes("age")
     ) {
 
-        window.location.href = "age-calculator.html";
+        window.location.href = "tools/age-calculator.html";
 
         return;
 
