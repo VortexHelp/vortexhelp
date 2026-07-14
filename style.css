@@ -37,16 +37,28 @@ header{
 }
 
 .logo a{
+    display:flex;
+    align-items:center;
     text-decoration:none;
-    font-size:30px;
-    font-weight:800;
-    color:#00c6ff;
-    letter-spacing:.5px;
+}
+
+.logo img{
+    height:50px;
+    width:50px;
+    border-radius:12px;
+    margin-right:12px;
     transition:.3s;
 }
 
-.logo a:hover{
-    color:#38bdf8;
+.logo img:hover{
+    transform:rotate(-8deg) scale(1.05);
+}
+
+.logo span{
+    font-size:28px;
+    font-weight:800;
+    color:#00c6ff;
+    letter-spacing:.5px;
 }
 
 /* ===========================
