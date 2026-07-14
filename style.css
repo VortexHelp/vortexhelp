@@ -247,3 +247,47 @@ nav a{
     background:#ffffff;
     transform:scale(1.05);
 }
+
+/* Calculator */
+
+.calculator-box{
+
+max-width:500px;
+
+margin:40px auto;
+
+background:#111827;
+
+padding:30px;
+
+border-radius:18px;
+
+border:1px solid #263244;
+
+}
+
+.calculator-box input{
+
+width:100%;
+
+padding:15px;
+
+font-size:17px;
+
+border:none;
+
+border-radius:10px;
+
+outline:none;
+
+margin-bottom:15px;
+
+}
+
+#result{
+
+margin-top:20px;
+
+color:#00c6ff;
+
+}
