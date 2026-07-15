@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Image to PDF - VortexHelp</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+<a href="../index.html">
+
+<img src="../logo.png" alt="VortexHelp Logo">
+
+<span>VortexHelp</span>
+
+</a>
+
+</div>
+
+<div class="menu-toggle" id="menuToggle">
+
+☰
+
+</div>
+
+<nav id="navbar">
+
+<a href="../index.html">Home</a>
+
+<a href="pdf-tools.html">PDF Tools</a>
+
+<a href="../index.html#tools">All Tools</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Image to PDF</h1>
+
+<p>
+
+Convert JPG, PNG and WEBP images into high-quality PDF documents.
+
+</p>
+
+<div class="calculator-box">
+
+<label>Select Image(s)</label>
+
+<input
+type="file"
+id="imageInput"
+accept="image/png,image/jpeg,image/webp"
+multiple>
+
+<br><br>
+
+<div id="previewContainer"></div>
+
+<br>
+
+<button
+class="btn"
+onclick="createPDF()">
+
+Create PDF
+
+</button>
+
+<button
+class="tool-btn"
+onclick="resetPDFTool()">
+
+Reset
+
+</button>
+
+<br><br>
+
+<a
+id="downloadBtn"
+class="tool-btn"
+style="display:none;"
+download="VortexHelp-Image-to-PDF.pdf">
+
+Download PDF
+
+</a>
+
+<p id="result"></p>
+
+</div>
+
+</section>
