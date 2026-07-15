@@ -91,3 +91,107 @@ Reset
 </div>
 
 </section>
+</div>
+
+</section>
+
+
+<footer>
+
+<div>
+
+<h3>VortexHelp</h3>
+
+<p>
+Free online tools for everyone.
+</p>
+
+</div>
+
+<div>
+
+<a href="#">
+Privacy Policy
+</a>
+
+<a href="#">
+Terms &amp; Conditions
+</a>
+
+<a href="#">
+Contact
+</a>
+
+</div>
+
+<p>
+© 2026 VortexHelp. All Rights Reserved.
+</p>
+
+</footer>
+
+<script src="../script.js"></script>
+
+<script>
+
+function calculateBMI(){
+
+let height = parseFloat(document.getElementById("height").value);
+let weight = parseFloat(document.getElementById("weight").value);
+
+if(isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0){
+
+document.getElementById("result").innerHTML = "Please enter valid values.";
+document.getElementById("status").innerHTML = "";
+return;
+
+}
+
+height = height / 100;
+
+let bmi = weight / (height * height);
+
+bmi = bmi.toFixed(1);
+
+let status = "";
+
+if(bmi < 18.5){
+
+status = "Underweight";
+
+}
+else if(bmi < 25){
+
+status = "Normal Weight";
+
+}
+else if(bmi < 30){
+
+status = "Overweight";
+
+}
+else{
+
+status = "Obese";
+
+}
+
+document.getElementById("result").innerHTML = "Your BMI: " + bmi;
+document.getElementById("status").innerHTML = "Category: " + status;
+
+}
+
+function resetBMI(){
+
+document.getElementById("height").value = "";
+document.getElementById("weight").value = "";
+document.getElementById("result").innerHTML = "";
+document.getElementById("status").innerHTML = "";
+
+}
+
+</script>
+
+</body>
+
+</html>
