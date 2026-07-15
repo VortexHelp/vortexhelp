@@ -165,3 +165,71 @@ Free online tools for everyone.
 </body>
 
 </html>
+/* ===========================
+   Image Compressor
+=========================== */
+
+#imageInput{
+    width:100%;
+    padding:15px;
+    background:#1f2937;
+    color:#ffffff;
+    border:2px dashed #00c6ff;
+    border-radius:12px;
+    cursor:pointer;
+    margin-bottom:20px;
+}
+
+#imageInput:hover{
+    border-color:#38bdf8;
+}
+
+#previewImage{
+    width:100%;
+    max-height:400px;
+    object-fit:contain;
+    background:#0f172a;
+    border:1px solid #263244;
+    border-radius:15px;
+    padding:10px;
+    margin:20px 0;
+    display:none;
+}
+
+#quality{
+    width:100%;
+    margin:15px 0 25px;
+    cursor:pointer;
+}
+
+#qualityValue{
+    color:#00c6ff;
+    font-weight:bold;
+}
+
+#downloadBtn{
+    display:none;
+    margin-top:20px;
+}
+
+#result{
+    margin-top:20px;
+    color:#b8c1d1;
+    font-size:16px;
+    line-height:1.8;
+    text-align:center;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+#previewImage{
+    max-height:250px;
+}
+
+#imageInput{
+    font-size:15px;
+}
+
+}
