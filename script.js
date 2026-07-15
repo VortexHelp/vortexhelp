@@ -224,3 +224,112 @@ function compressImage() {
     reader.readAsDataURL(selectedImage);
 
 }
+/* ===========================
+   Image Compressor - Premium Features
+=========================== */
+
+// Reset Tool
+
+function resetCompressor() {
+
+    if(imageInput){
+        imageInput.value = "";
+    }
+
+    if(previewImage){
+        previewImage.src = "";
+        previewImage.style.display = "none";
+    }
+
+    if(downloadBtn){
+        downloadBtn.style.display = "none";
+        downloadBtn.removeAttribute("href");
+    }
+
+    if(result){
+        result.innerHTML = "";
+    }
+
+    if(qualitySlider){
+        qualitySlider.value = 80;
+    }
+
+    if(qualityValue){
+        qualityValue.innerHTML = "80%";
+    }
+
+    selectedImage = null;
+
+}
+
+
+// Allow only Images
+
+if(imageInput){
+
+imageInput.addEventListener("change",function(){
+
+const file=this.files[0];
+
+if(!file) return;
+
+if(!file.type.startsWith("image/")){
+
+alert("Please select a valid image.");
+
+resetCompressor();
+
+return;
+
+}
+
+});
+
+}
+
+
+// Drag & Drop Support
+
+const calculatorBox=document.querySelector(".calculator-box");
+
+if(calculatorBox){
+
+calculatorBox.addEventListener("dragover",function(e){
+
+e.preventDefault();
+
+calculatorBox.style.borderColor="#00c6ff";
+
+});
+
+calculatorBox.addEventListener("dragleave",function(){
+
+calculatorBox.style.borderColor="#263244";
+
+});
+
+calculatorBox.addEventListener("drop",function(e){
+
+e.preventDefault();
+
+calculatorBox.style.borderColor="#263244";
+
+const file=e.dataTransfer.files[0];
+
+if(!file) return;
+
+if(!file.type.startsWith("image/")){
+
+alert("Please drop an image file.");
+
+return;
+
+}
+
+imageInput.files=e.dataTransfer.files;
+
+imageInput.dispatchEvent(new Event("change"));
+
+});
+
+}
