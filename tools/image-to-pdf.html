@@ -97,6 +97,8 @@ Reset
 
 <script>
 
+(function () {
+
 const imageInput = document.getElementById("imageInput");
 const previewContainer = document.getElementById("previewContainer");
 const result = document.getElementById("result");
@@ -105,38 +107,38 @@ const resetBtn = document.getElementById("resetBtn");
 
 let selectedFiles = [];
 
-imageInput.addEventListener("change", function(){
+imageInput.addEventListener("change", function () {
 
-selectedFiles = Array.from(this.files);
+    selectedFiles = Array.from(this.files);
 
-previewContainer.innerHTML = "";
+    previewContainer.innerHTML = "";
 
-result.innerHTML = "";
+    result.innerHTML = "";
 
-selectedFiles.forEach(file=>{
+    selectedFiles.forEach(file => {
 
-const img=document.createElement("img");
+        const img = document.createElement("img");
 
-img.src=URL.createObjectURL(file);
+        img.src = URL.createObjectURL(file);
 
-img.style.width="120px";
-img.style.margin="8px";
-img.style.borderRadius="10px";
-img.style.border="2px solid #334155";
+        img.style.width = "120px";
+        img.style.margin = "8px";
+        img.style.borderRadius = "10px";
+        img.style.border = "2px solid #334155";
 
-previewContainer.appendChild(img);
+        previewContainer.appendChild(img);
+
+    });
 
 });
 
-});
+createPdfBtn.addEventListener("click", createPDF);
 
-createPdfBtn.addEventListener("click",createPDF);
+resetBtn.addEventListener("click", resetPDFTool);
 
-resetBtn.addEventListener("click",resetPDFTool);
+async function createPDF() {
 
-async function createPDF(){
-
-    if(selectedFiles.length === 0){
+    if (selectedFiles.length === 0) {
         result.innerHTML = "❌ Please select at least one image.";
         return;
     }
@@ -228,6 +230,8 @@ function resetPDFTool() {
     result.innerHTML = "";
 
 }
+
+})();
 
 </script>
 
