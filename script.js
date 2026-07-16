@@ -145,10 +145,12 @@ if (imageInput) {
 
         reader.onload = function (e) {
 
-            previewImage.src = e.target.result;
-            previewImage.style.display = "block";
+    if(previewImage){
+        previewImage.src = e.target.result;
+        previewImage.style.display = "block";
+    }
 
-        };
+};
 
         reader.readAsDataURL(file);
 
