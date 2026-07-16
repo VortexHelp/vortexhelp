@@ -352,3 +352,26 @@ if (calculatorBox && imageInput) {
 }
 
 })();
+
+/* ===========================
+   Privacy Policy / Terms Pages
+=========================== */
+
+.policy-content h2{
+    color:#00c6ff;
+    font-size:22px;
+    margin-top:30px;
+    margin-bottom:12px;
+}
+
+.policy-content p{
+    color:#b8c1d1;
+    font-size:15px;
+    line-height:1.8;
+    margin-bottom:10px;
+}
+
+.policy-content a{
+    color:#00c6ff;
+    text-decoration:underline;
+}
