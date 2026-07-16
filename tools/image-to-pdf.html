@@ -71,7 +71,7 @@ multiple>
 
 <br>
 
-<button class="btn" onclick="createPDF()">
+<button class="btn" id="createPdfBtn">
 Create PDF
 </button>
 
@@ -266,6 +266,8 @@ downloadBtn.removeAttribute("href");
 result.innerHTML = "";
 
 }
+
+document.getElementById("createPdfBtn").addEventListener("click", createPDF);
 
 </script>
 
