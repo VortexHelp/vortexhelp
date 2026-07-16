@@ -61,19 +61,15 @@ Merge, Split, Compress, Convert and Edit PDF files online for free.
 
 <div class="card">
 
-<h3>📄 Image to PDF</h3>
+    <h3>📄 Image to PDF</h3>
 
-<p>
+    <p>
+        Convert JPG, PNG and WEBP images into PDF documents.
+    </p>
 
-Convert JPG, PNG and WEBP images into PDF documents.
-
-</p>
-
-<a href="image-to-pdf.html" class="tool-btn">
-
-Open Tool
-
-</a>
+    <a href="image-to-pdf.html" class="tool-btn">
+        Open Tool
+    </a>
 
 </div>
 
@@ -343,154 +339,21 @@ Coming Soon
 <footer>
 
 <div>
-
 <h3>VortexHelp</h3>
-
-<p>
-
-Free online tools for everyone.
-
-</p>
-
+<p>Free online tools for everyone.</p>
 </div>
 
 <div>
-
 <a href="#">Privacy Policy</a>
-
 <a href="#">Terms & Conditions</a>
-
 <a href="#">Contact</a>
-
 </div>
 
-<p>
-
-© 2026 VortexHelp. All Rights Reserved.
-
-</p>
+<p>© 2026 VortexHelp. All Rights Reserved.</p>
 
 </footer>
 
 <script src="../script.js"></script>
-
-<script>
-
-async function createPDF() {
-
-...
-
-}
-
-const pdfBlob = pdf.output("blob");
-
-const pdfURL = URL.createObjectURL(pdfBlob);
-
-downloadBtn.href = pdfURL;
-
-downloadBtn.style.display = "inline-block";
-
-result.innerHTML = "✅ PDF created successfully! Click Download PDF.";
-
-}
-
-function resetPDFTool() {
-
-imageInput.value = "";
-
-previewContainer.innerHTML = "";
-
-selectedImages = [];
-
-downloadBtn.style.display = "none";
-
-downloadBtn.removeAttribute("href");
-
-result.innerHTML = "";
-
-}
-
-</script>
-
-if (selectedImages.length === 0) {
-
-result.innerHTML = "❌ Please select at least one image.";
-
-return;
-
-}
-
-const { jsPDF } = window.jspdf;
-
-const pdf = new jsPDF("p", "mm", "a4");
-
-for (let i = 0; i < selectedImages.length; i++) {
-
-const img = new Image();
-
-img.src = selectedImages[i];
-
-await new Promise(resolve => {
-
-img.onload = resolve;
-
-});
-
-const pageWidth = 210;
-
-const pageHeight = 297;
-
-const margin = 10;
-
-const maxWidth = pageWidth - (margin * 2);
-
-const maxHeight = pageHeight - (margin * 2);
-
-let imgWidth = img.width;
-
-let imgHeight = img.height;
-
-const ratio = Math.min(
-
-maxWidth / imgWidth,
-
-maxHeight / imgHeight
-
-);
-
-imgWidth *= ratio;
-
-imgHeight *= ratio;
-
-const x = (pageWidth - imgWidth) / 2;
-
-const y = (pageHeight - imgHeight) / 2;
-
-if (i > 0) {
-
-pdf.addPage();
-
-}
-
-pdf.addImage(
-
-selectedImages[i],
-
-"JPEG",
-
-x,
-
-y,
-
-imgWidth,
-
-imgHeight
-
-);
-
-}
-
-<script>
 
 </body>
 
