@@ -710,3 +710,31 @@ footer{
 .calculator-box select:focus{
     border-color:#00c6ff;
 }
+
+/* ===========================
+   JSON Formatter - Textarea
+=========================== */
+
+.calculator-box textarea{
+    width:100%;
+    padding:16px;
+    background:#1f2937;
+    color:#ffffff;
+    border:1px solid #374151;
+    border-radius:12px;
+    outline:none;
+    font-size:14px;
+    resize:vertical;
+    min-height:180px;
+    margin-bottom:15px;
+    font-family:"Courier New", monospace;
+}
+
+.calculator-box textarea:focus{
+    border-color:#00c6ff;
+}
+
+.calculator-box textarea[readonly]{
+    background:#151d2b;
+    color:#00c6ff;
+}
