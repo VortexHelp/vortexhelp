@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Counter - Free Online Tool | VortexHelp</title>
+<meta name="description" content="Count words, characters, sentences and paragraphs online for free. Real-time word counter tool.">
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <a href="../index.html">
+            <img src="../logo.png" alt="VortexHelp Logo">
+            <span>VortexHelp</span>
+        </a>
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
+
+    <nav id="navbar">
+        <a href="../index.html">Home</a>
+        <a href="text-tools.html">Text Tools</a>
+        <a href="../index.html#tools">All Tools</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <h1>Word Counter</h1>
+
+    <p>
+        Count words, characters, sentences and paragraphs in real-time.
+        Just start typing or paste your text below.
+    </p>
+
+    <div class="calculator-box">
+
+        <label for="textInput">Enter or Paste Your Text</label>
+
+        <textarea
+            id="textInput"
+            rows="10"
+            placeholder="Start typing or paste your text here..."></textarea>
+
+        <br>
+
+        <button class="tool-btn" id="clearBtn">Clear Text</button>
+
+        <div class="wc-stats">
+
+            <div class="wc-box">
+                <h2 id="wordCount">0</h2>
+                <p>Words</p>
+            </div>
+
+            <div class="wc-box">
+                <h2 id="charCountWithSpace">0</h2>
+                <p>Characters (with spaces)</p>
+            </div>
+
+            <div class="wc-box">
+                <h2 id="charCountNoSpace">0</h2>
+                <p>Characters (no spaces)</p>
+            </div>
+
+            <div class="wc-box">
+                <h2 id="sentenceCount">0</h2>
+                <p>Sentences</p>
+            </div>
+
+            <div class="wc-box">
+                <h2 id="paragraphCount">0</h2>
+                <p>Paragraphs</p>
+            </div>
+
+            <div class="wc-box">
+                <h2 id="readingTime">0 sec</h2>
+                <p>Reading Time</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <div>
+        <h3>VortexHelp</h3>
+        <p>Free online tools for everyone.</p>
+    </div>
+
+    <div>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <p>© 2026 VortexHelp. All Rights Reserved.</p>
+</footer>
+
+<script src="../script.js"></script>
+
+<script>
+(function () {
+
+    const textInput = document.getElementById("textInput");
+    const clearBtn = document.getElementById("clearBtn");
+
+    const wordCount = document.getElementById("wordCount");
+    const charCountWithSpace = document.getElementById("charCountWithSpace");
+    const charCountNoSpace = document.getElementById("charCountNoSpace");
+    const sentenceCount = document.getElementById("sentenceCount");
+    const paragraphCount = document.getElementById("paragraphCount");
+    const readingTime = document.getElementById("readingTime");
+
+    function updateStats() {
+
+        const text = textInput.value;
+
+        // Words
+        const words = text.trim().length === 0
+            ? []
+            : text.trim().split(/\s+/);
+
+        // Characters
+        const withSpace = text.length;
+        const noSpace = text.replace(/\s/g, "").length;
+
+        // Sentences (split on . ! ?)
+        const sentences = text
+            .split(/[.!?]+/)
+            .filter(s => s.trim().length > 0);
+
+        // Paragraphs (split on line breaks)
+        const paragraphs = text
+            .split(/\n+/)
+            .filter(p => p.trim().length > 0);
+
+        // Reading time (avg 200 words per minute)
+        const wordNum = words.length;
+        const minutes = wordNum / 200;
+        let timeLabel;
+
+        if (minutes < 1) {
+            timeLabel = Math.ceil(minutes * 60) + " sec";
+        } else {
+            timeLabel = Math.ceil(minutes) + " min";
+        }
+
+        wordCount.textContent = wordNum;
+        charCountWithSpace.textContent = withSpace;
+        charCountNoSpace.textContent = noSpace;
+        sentenceCount.textContent = sentences.length;
+        paragraphCount.textContent = paragraphs.length;
+        readingTime.textContent = wordNum === 0 ? "0 sec" : timeLabel;
+
+    }
+
+    textInput.addEventListener("input", updateStats);
+
+    clearBtn.addEventListener("click", function () {
+        textInput.value = "";
+        updateStats();
+        textInput.focus();
+    });
+
+    updateStats();
+
+})();
+</script>
+
+</body>
+</html>
