@@ -106,3 +106,73 @@ Download PDF
 </div>
 
 </section>
+
+<footer>
+
+<div>
+
+<h3>VortexHelp</h3>
+
+<p>
+
+Free online tools for everyone.
+
+</p>
+
+</div>
+
+<div>
+
+<a href="#">Privacy Policy</a>
+
+<a href="#">Terms & Conditions</a>
+
+<a href="#">Contact</a>
+
+</div>
+
+<p>
+
+© 2026 VortexHelp. All Rights Reserved.
+
+</p>
+
+</footer>
+
+<script src="../script.js"></script>
+
+<script>
+
+const imageInput = document.getElementById("imageInput");
+const previewContainer = document.getElementById("previewContainer");
+const downloadBtn = document.getElementById("downloadBtn");
+const result = document.getElementById("result");
+
+let selectedFiles = [];
+
+imageInput.addEventListener("change", function () {
+
+selectedFiles = Array.from(this.files);
+
+previewContainer.innerHTML = "";
+
+downloadBtn.style.display = "none";
+
+result.innerHTML = "";
+
+selectedFiles.forEach(file => {
+
+const img = document.createElement("img");
+
+img.src = URL.createObjectURL(file);
+
+img.style.width = "120px";
+img.style.margin = "8px";
+img.style.borderRadius = "10px";
+img.style.border = "2px solid #334155";
+
+previewContainer.appendChild(img);
+
+});
+
+});
