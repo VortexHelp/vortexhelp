@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JSON Formatter & Validator - Free Online Tool | VortexHelp</title>
+<meta name="description" content="Format, validate and beautify JSON data online for free. Instantly detect JSON errors.">
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <a href="../index.html">
+            <img src="../logo.png" alt="VortexHelp Logo">
+            <span>VortexHelp</span>
+        </a>
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
+
+    <nav id="navbar">
+        <a href="../index.html">Home</a>
+        <a href="developer-tools.html">Developer Tools</a>
+        <a href="../index.html#tools">All Tools</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <h1>JSON Formatter & Validator</h1>
+
+    <p>
+        Paste your JSON below to format, beautify and validate it instantly.
+    </p>
+
+    <div class="calculator-box">
+
+        <label for="jsonInput">Paste JSON</label>
+
+        <textarea
+            id="jsonInput"
+            rows="10"
+            placeholder='{"name":"VortexHelp","type":"tools"}'></textarea>
+
+        <br>
+
+        <button class="btn" id="formatBtn">Format JSON</button>
+        <button class="tool-btn" id="minifyBtn">Minify JSON</button>
+        <button class="tool-btn" id="copyBtn">Copy Output</button>
+        <button class="tool-btn" id="clearBtn">Clear</button>
+
+        <br><br>
+
+        <p id="result"></p>
+
+        <label for="jsonOutput">Output</label>
+
+        <textarea
+            id="jsonOutput"
+            rows="10"
+            readonly
+            placeholder="Formatted JSON will appear here..."></textarea>
+
+    </div>
+
+</section>
+
+<footer>
+    <div>
+        <h3>VortexHelp</h3>
+        <p>Free online tools for everyone.</p>
+    </div>
+
+    <div>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <p>© 2026 VortexHelp. All Rights Reserved.</p>
+</footer>
+
+<script src="../script.js"></script>
+
+<script>
+(function () {
+
+    const jsonInput = document.getElementById("jsonInput");
+    const jsonOutput = document.getElementById("jsonOutput");
+    const result = document.getElementById("result");
+
+    const formatBtn = document.getElementById("formatBtn");
+    const minifyBtn = document.getElementById("minifyBtn");
+    const copyBtn = document.getElementById("copyBtn");
+    const clearBtn = document.getElementById("clearBtn");
+
+    function formatJSON() {
+
+        const text = jsonInput.value.trim();
+
+        if (text === "") {
+            result.innerHTML = "❌ Please paste some JSON first.";
+            jsonOutput.value = "";
+            return;
+        }
+
+        try {
+
+            const parsed = JSON.parse(text);
+            jsonOutput.value = JSON.stringify(parsed, null, 4);
+            result.innerHTML = "✅ Valid JSON — formatted successfully.";
+
+        } catch (error) {
+
+            jsonOutput.value = "";
+            result.innerHTML = "❌ Invalid JSON — " + error.message;
+
+        }
+
+    }
+
+    function minifyJSON() {
+
+        const text = jsonInput.value.trim();
+
+        if (text === "") {
+            result.innerHTML = "❌ Please paste some JSON first.";
+            jsonOutput.value = "";
+            return;
+        }
+
+        try {
+
+            const parsed = JSON.parse(text);
+            jsonOutput.value = JSON.stringify(parsed);
+            result.innerHTML = "✅ Valid JSON — minified successfully.";
+
+        } catch (error) {
+
+            jsonOutput.value = "";
+            result.innerHTML = "❌ Invalid JSON — " + error.message;
+
+        }
+
+    }
+
+    function copyOutput() {
+
+        if (jsonOutput.value.trim() === "") {
+            result.innerHTML = "❌ Nothing to copy yet.";
+            return;
+        }
+
+        navigator.clipboard.writeText(jsonOutput.value).then(function () {
+            result.innerHTML = "📋 Copied to clipboard!";
+        }).catch(function () {
+            result.innerHTML = "❌ Copy failed. Please copy manually.";
+        });
+
+    }
+
+    function clearAll() {
+        jsonInput.value = "";
+        jsonOutput.value = "";
+        result.innerHTML = "";
+    }
+
+    formatBtn.addEventListener("click", formatJSON);
+    minifyBtn.addEventListener("click", minifyJSON);
+    copyBtn.addEventListener("click", copyOutput);
+    clearBtn.addEventListener("click", clearAll);
+
+})();
+</script>
+
+</body>
+</html>
